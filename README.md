@@ -1,7 +1,7 @@
 # Base Repository
 
-![GitHub repo size](https://img.shields.io/github/repo-size/GeekHoneInside/base_repository)
-[![Open Issues](https://img.shields.io/github/issues/GeekHoneInside/base_repository.svg)](https://github.com/GeekHoneInside/base_repository/issues)
+![GitHub repo size](https://img.shields.io/github/repo-size/GeekHomeInside/base_repository)
+[![Open Issues](https://img.shields.io/github/issues/GeekHoneInside/base_repository.svg)](https://github.com/GeekHomeInside/base_repository/issues)
 [![Actions Status](https://github.com/GeekHoneInside/base_repository/workflows/test/badge.svg)](https://github.com/GeekHoneInside/base_repository/actions)
 [![Slack](https://img.shields.io/badge/slack-@GeekHomeInside/ghi-success.svg?logo=slack)](https://geekhomeinside.slack.com)
 
