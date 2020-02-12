@@ -1,0 +1,39 @@
+---
+name: portfolio
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Checkout submodules
+        shell: bash
+        run: |
+          auth_header="$(git config --local --get http.https://github.com/.extraheader)"
+          git submodule sync --recursive
+          git -c "http.extraheader=$auth_header" -c protocol.version=2 \
+          submodule update --init --force --recursive --depth=1
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2.2.2
+        with:
+          hugo-version: "0.62.0"
+          extended: true
+
+      - name: build hugo minify portfolio
+        run: hugo --gc --minify
+
+      - name: publish portfolio
+        uses: seanmiddleditch/gha-publish-to-git@master
+        with:
+          branch: gh-pages
+          source_folder: public
+          github_token: ${{ secrets.GH_TOKEN }}

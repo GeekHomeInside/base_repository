@@ -1,0 +1,17 @@
+---
+name: gitleaks
+
+on:
+  - push
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    if: "!contains(github.event.head_commit.message, '[ci skip]')"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - uses: aslafy-z/gitleaks-action@b69f33a989006a03cf2a823737d3517abc3c61fb
+        env:
+          GITLEAKS_CONFIG: .github/gitleaks.toml

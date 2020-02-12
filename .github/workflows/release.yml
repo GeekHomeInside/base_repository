@@ -1,0 +1,42 @@
+name: release
+
+on:
+  push:
+    branches:
+      - master
+      - develop
+      - v*.*.*
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - uses: cycjimmy/semantic-release-action@v2.1.0
+        id: semantic
+        with:
+          # TODO: Unpin version (see https://github.com/cycjimmy/semantic-release-action/issues/14)
+          semantic_version: 16.0.0
+          extra_plugins: |
+            @kubees/semantic-release-config
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Release has been published!
+        if: steps.semantic.outputs.new_release_published == 'true'
+        run: |
+          echo 'v${{ steps.semantic.outputs.new_release_version }} released'
+
+      - uses: haya14busa/action-update-semver@bf83d947c2a91a006008b05cd425a6f3e37dc194
+        if: steps.semantic.outputs.new_release_published == 'true'
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          tag: v${{ steps.semantic.outputs.new_release_version }}
+          # yamllint disable rule:line-length
+          message: |
+            Release v${{ steps.semantic.outputs.new_release_version }}
+
+            See https://github.com/${{ github.repository }}/releases/tag/v${{ steps.semantic.outputs.new_release_version }}
+          # yamllint enable

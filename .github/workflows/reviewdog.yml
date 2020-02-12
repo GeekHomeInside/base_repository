@@ -1,0 +1,62 @@
+---
+name: reviewdog
+
+on:
+  - push
+
+jobs:
+  editorconfig:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - uses: reviewdog/action-eclint@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          reporter: github-check
+          eclint_flags: .
+
+  yaml:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - uses: reviewdog/action-yamllint@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          reporter: github-check
+          yamllint_flags: .
+
+  golang:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: golangci-lint
+        uses: aslafy-z/action-golangci-lint@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          reporter: github-check
+          golangci_lint_flags: .
+          directory: src/
+
+      - name: golint
+        uses: aslafy-z/action-golangci-lint@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          reporter: github-check
+          golangci_lint_flags: "--disable-all -E golint"
+          tool_name: golint
+          directory: src/
+
+      - name: errcheck
+        uses: aslafy-z/action-golangci-lint@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          reporter: github-check
+          golangci_lint_flags: "--disable-all -E errcheck"
+          tool_name: errcheck
+          directory: src/

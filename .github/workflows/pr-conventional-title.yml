@@ -1,0 +1,19 @@
+---
+name: conventional-title
+
+on:
+  pull_request:
+    types:
+      - opened
+      - edited
+      - synchronize
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: aslafy-z/conventional-pr-title-action@db7d0ad5787c8aac06aaecc4e3fac9e8dc5105af
+        with:
+          preset: conventional-changelog-angular@^5.0.6
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
