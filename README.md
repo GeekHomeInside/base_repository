@@ -1,20 +1,19 @@
-# .github
+# Base Repository
 
-![GitHub repo size](https://img.shields.io/github/repo-size/kubeesio/kubees)
-[![Open Issues](https://img.shields.io/github/issues/kubeesio/kubees.svg)](https://github.com/kubeesio/kubees/issues)
-[![Actions Status](https://github.com/Kubeesio/kubees/workflows/test/badge.svg)](https://github.com/Kubeesio/kubees/actions)
-[![Actions Status](https://github.com/Kubeesio/kubees/workflows/docs-kubees/badge.svg)](https://github.com/Kubeesio/kubees/actions)
-[![Slack](https://img.shields.io/badge/slack-@CCL/kubees-success.svg?logo=slack)](https://ccl-consulting.slack.com)
+![GitHub repo size](https://img.shields.io/github/repo-size/GeekHoneInside/base_repository)
+[![Open Issues](https://img.shields.io/github/issues/GeekHoneInside/base_repository.svg)](https://github.com/GeekHoneInside/base_repository/issues)
+[![Actions Status](https://github.com/GeekHoneInside/base_repository/workflows/test/badge.svg)](https://github.com/GeekHoneInside/base_repository/actions)
+[![Slack](https://img.shields.io/badge/slack-@GeekHomeInside/ghi-success.svg?logo=slack)](https://geekhomeinside.slack.com)
 
 ## Introduction
 
-Community health and common deployment files for Kubees
+Community health and common deployment files for base repository
 
 ## Quick Start
 
-You can copie file from this repository to have the standard file used by kubees organization
+You can copie file from this repository to have the standard file used by GeekHomeInside organization
 
-This file use kubeesio/kubees to display the default example badges.
+This file use GeekHoneInside/base_repository to display the default example badges.
 
 ## Usage
 
@@ -26,13 +25,13 @@ This file use kubeesio/kubees to display the default example badges.
 
 **Got a question?**
 
-File a new [issue](https://github.com/Kubeesio/repo_name/issues)
+File a new [issue](https://github.com/GeekHoneInside/base_repository/issues)
 
 ### Contributing
 
-Visit the [Kubees contributing documentation](https://kubees.io/docs/contribution-guidelines/)
+Visit the [Project contributing documentation]()
 for more details on the general Git workflow, commit convention and other guidlines.
 
 ## About
 
-This project is maintained and funded by [CCL Consulting]((https://ccl-consulting.fr)).
+This project is maintained and funded by [GeekHomeInside]((https://portfolio.geekhomeinside.io)).

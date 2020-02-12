@@ -4,8 +4,8 @@ update:
 	git pull --rebase
 
 ## Server the kubees documentation at http://localhost:1313/
-.PHONY: themes/hugo-theme-terminal
-docs: themes/hugo-theme-terminal
+.PHONY: themes/yourhugothemes
+docs: themes/yourhugothemes
 	hugo server -w
 
 ## Install submodule
